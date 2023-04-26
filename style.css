@@ -331,6 +331,7 @@ input::placeholder {
     color: #27c4f5;
     font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .suggestionHeadline {

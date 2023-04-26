@@ -157,9 +157,9 @@ function genProfileContainer() {
         const user = suggestionUser[j];
 
         suggestion.innerHTML += `
-        <div class="suggestionContainerUser">
+        <div class="suggestionContainerUser (${j})">
             
-            <div class="suggestionContainerNameLeft">
+            <div class="suggestionContainerNameLeft (${j})">
                 <img src="${user.image}">
                 <div class="suggestionContainerName">
                     <span class="profileContainerNameUser">${user.username}</span><br>
@@ -168,11 +168,12 @@ function genProfileContainer() {
             </div>
 
             <div class="suggestionContainerNameRight">
-                <span class="profileContainerNameRight"><a id="follow" href="#">Folgen</a></span>
+                <span class="profileContainerNameRight" id="follow(${j})"><a onclick="followUnChange(${j})" href="#">Folgen</a></span>
             </div>
         </div>
         `;
 
+    
     }
 }
 
@@ -256,6 +257,24 @@ function addPost(k) {
 
 }
 
-function followUser() {
-    document.getElementById('follow').innerHTML='Angefragt';
+function follow(j) {
+
+    document.getElementById(`follow(${j})`).innerHTML = `
+    <a onclick="followUnChange(${j})">Folgen</a>
+    `;
+
 }
+
+function followUnChange(j) {
+
+    document.getElementById(`follow(${j})`).innerHTML = `
+    <a onclick="follow(${j})">Angefragt</a>
+    `;
+
+}
+
+
+
+
+
+
