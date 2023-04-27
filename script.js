@@ -200,7 +200,7 @@ function genPost() {
 
             <div class="articleIcon">
                 <div class="articleIconLeft">
-                    <a href="#"><img class="articleIconLeftFilter" src="icon/like.png"></a>
+                    <a href="#" id="image(${k})"><img  onclick="likeButton(${k})" class="articleIconLeftFilter" src="icon/like.png"></a>
                     <a href="#"><img class="articleIconLeftFilter" src="icon/comments-32.png"></a>
                     <a href="#"><img class="articleIconLeftFilter" src="icon/sharethis-32.png"></a>
                 </div>
@@ -266,12 +266,22 @@ function follow(j) {
 }
 
 function followUnChange(j) {
-
     document.getElementById(`follow(${j})`).innerHTML = `
     <a onclick="follow(${j})">Angefragt</a>
     `;
-
 }
+
+
+function likeButton(k) {
+    document.getElementById(`image(${k})`).innerHTML=`
+    <img onclick ="dislikeButton(${k})" src="icon/hearts.png">`;
+}
+
+function dislikeButton(k) {
+    document.getElementById(`image(${k})`).innerHTML=`
+    <img onclick ="likeButton(${k})" src="icon/like.png">`;
+}
+
 
 
 
