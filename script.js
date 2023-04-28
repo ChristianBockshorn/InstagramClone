@@ -90,6 +90,7 @@ let userStory = [
     },
 ];
 
+
 let suggestionUser = [
     {
         'image': 'img/user1.jpeg',
@@ -128,8 +129,6 @@ let suggestionUser = [
 ];
 
 
-
-
 function render() {
     let content = document.getElementById('user');
     content.innerHTML = '';
@@ -148,8 +147,8 @@ function render() {
     genPost();
     comment();
 
-
 }
+
 
 function genProfileContainer() {
     let suggestion = document.getElementById('suggestionContainer');
@@ -173,10 +172,9 @@ function genProfileContainer() {
             </div>
         </div>
         `;
-
-
     }
 }
+
 
 function genPost() {
     let post = document.getElementById('postContainer');
@@ -224,16 +222,15 @@ function genPost() {
             </div>
 
             <div class="articleInput">
-                <input required id="input${k}" type="text" placeholder="Kommentieren..."></input>
+                <input name="alert" required id="input${k}" type="text" placeholder="Kommentieren..."></input>
                 <button onclick="addPost(${k})" class="articlePostButton">Posten</button> 
             </div>
         </article>
         
         `;
+
     }
 }
-
-
 
 
 function comment() {
@@ -241,7 +238,6 @@ function comment() {
         let articleCommentContainer = document.getElementById(`articleCommentContainer${i}`);
         articleCommentContainer.innerHTML = '';
         const post = posts[i];
-
 
         for (let p = 0; p < post['comments'].length; p++) {
             const comment = post['comments'][p];
@@ -253,24 +249,34 @@ function comment() {
             </div>
         `;
         }
-
     }
 }
 
+
 function addPost(k) {
     let input = document.getElementById(`input${k}`);
-    posts[k]['comments'].push(input.value);
-    render();
-
+    if (input.value.length == '') {
+        alert('Comment must be filled out');
+    } else {
+        posts[k]['comments'].push(input.value);
+        render();
+    }
 }
+// Diese funktion funktioniert ebenfalls, bloß ohne die Meldung sobald das Feld leer gepostet wird
+// function addPost(k) {
+//     let input = document.getElementById(`input${k}`);
+//     posts[k]['comments'].push(input.value);
+//     render();
+
+// }
+
 
 function follow(j) {
-
     document.getElementById(`follow(${j})`).innerHTML = `
     <a onclick="followUnChange(${j})">Folgen</a>
     `;
-
 }
+
 
 function followUnChange(j) {
     document.getElementById(`follow(${j})`).innerHTML = `
@@ -283,6 +289,7 @@ function likeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="dislikeButton(${k})" src="icon/hearts.png">`;
 }
+
 
 function dislikeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
