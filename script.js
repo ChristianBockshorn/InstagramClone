@@ -3,16 +3,16 @@ let posts = [
         'author': '19quattro94',
         'authorImage': 'img/profile.jpeg',
         'image': 'img/nature.jpg',
-        'description': 'Schöne Natur!!!',
+        'description': 'Sonnenuntergang am Strand, Leo Carrillo State Beach',
         'location': '',
-        'comments': ['test test test']
+        'comments': [],
     },
 
     {
         'author': 'SilverSurfer',
         'authorImage': 'img/profile2.jpeg',
         'image': 'img/abstract.jpg',
-        'description': 'Schöne Natur!!!',
+        'description': 'Abstract black hexagon pattern on light blue background technology style',
         'location': '',
         'comments': []
     },
@@ -21,7 +21,7 @@ let posts = [
         'author': 'TechWizard',
         'authorImage': 'img/profile3.jpeg',
         'image': 'img/computer.jpg',
-        'description': 'Schöne Natur!!!',
+        'description': 'Maschinelles Lernen ist die Grundlage von intelligenten Chatbots',
         'location': '',
         'comments': []
     },
@@ -30,7 +30,7 @@ let posts = [
         'author': 'ShadowHunter',
         'authorImage': 'img/profile4.jpeg',
         'image': 'img/cubes.jpg',
-        'description': 'Schöne Natur!!!',
+        'description': 'Cubes of Shiny Material. Modern wallpaper in orange and yellow',
         'location': '',
         'comments': []
     },
@@ -39,9 +39,10 @@ let posts = [
         'author': 'PhoenixFire3',
         'authorImage': 'img/profile5.jpeg',
         'image': 'img/tech.jpg',
-        'description': 'Schöne Natur!!!',
+        'description': 'Die Abkürzung GPU steht für die Graphics Processing Unit.',
         'location': '',
-        'comments': []
+        'comments': [],
+
     },
 
 ];
@@ -173,7 +174,7 @@ function genProfileContainer() {
         </div>
         `;
 
-    
+
     }
 }
 
@@ -200,8 +201,8 @@ function genPost() {
 
             <div class="articleIcon">
                 <div class="articleIconLeft">
-                    <a href="#" id="image(${k})"><img  onclick="likeButton(${k})" class="articleIconLeftFilter" src="icon/like.png"></a>
-                    <a href="#"><img class="articleIconLeftFilter" src="icon/comments-32.png"></a>
+                    <a id="image(${k})"><img  onclick="likeButton(${k})" class="articleIconLeftFilter" src="icon/like.png"></a>
+                    <a href="#input${k}"><img class="articleIconLeftFilter" src="icon/comments-32.png"></a>
                     <a href="#"><img class="articleIconLeftFilter" src="icon/sharethis-32.png"></a>
                 </div>
                 <div class="articleIconRight">
@@ -241,11 +242,17 @@ function comment() {
         articleCommentContainer.innerHTML = '';
         const post = posts[i];
 
-        articleCommentContainer.innerHTML += `
+
+        for (let p = 0; p < post['comments'].length; p++) {
+            const comment = post['comments'][p];
+
+            articleCommentContainer.innerHTML += `
             <div id="postComment(${i})">
-            <b>${post.author}</b> <div>${post['comments']}</div>
+                <b>19quattro94:</b>
+                <div>${comment}</div><br>
             </div>
         `;
+        }
 
     }
 }
@@ -273,12 +280,12 @@ function followUnChange(j) {
 
 
 function likeButton(k) {
-    document.getElementById(`image(${k})`).innerHTML=`
+    document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="dislikeButton(${k})" src="icon/hearts.png">`;
 }
 
 function dislikeButton(k) {
-    document.getElementById(`image(${k})`).innerHTML=`
+    document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="likeButton(${k})" src="icon/like.png">`;
 }
 
