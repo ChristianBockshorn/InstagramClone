@@ -4,7 +4,7 @@ let posts = [
         'authorImage': 'img/profile.jpeg',
         'image': 'img/nature.jpg',
         'description': 'Sonnenuntergang am Strand, Leo Carrillo State Beach',
-        'location': '',
+        'likes': '58',
         'comments': [],
     },
 
@@ -13,7 +13,7 @@ let posts = [
         'authorImage': 'img/profile2.jpeg',
         'image': 'img/abstract.jpg',
         'description': 'Abstract black hexagon pattern on light blue background technology style',
-        'location': '',
+        'likes': '72',
         'comments': []
     },
 
@@ -22,7 +22,7 @@ let posts = [
         'authorImage': 'img/profile3.jpeg',
         'image': 'img/computer.jpg',
         'description': 'Maschinelles Lernen ist die Grundlage von intelligenten Chatbots',
-        'location': '',
+        'likes': '69',
         'comments': []
     },
 
@@ -31,7 +31,7 @@ let posts = [
         'authorImage': 'img/profile4.jpeg',
         'image': 'img/cubes.jpg',
         'description': 'Cubes of Shiny Material. Modern wallpaper in orange and yellow',
-        'location': '',
+        'likes': '109',
         'comments': []
     },
 
@@ -40,7 +40,7 @@ let posts = [
         'authorImage': 'img/profile5.jpeg',
         'image': 'img/tech.jpg',
         'description': 'Die Abkürzung GPU steht für die Graphics Processing Unit.',
-        'location': '',
+        'likes': '80',
         'comments': [],
 
     },
@@ -208,7 +208,7 @@ function genPost() {
                 </div>
             </div>
 
-            <span class="articleLikeText">Gefällt mir xx mal</span>
+            <span class="articleLikeText">Gefällt <span id="likes(${k})">${posting.likes}</span> mal</span>
 
             <div class="articlePostText">
                 <span class="articleLikeText">${posting.author}</span>
@@ -288,12 +288,28 @@ function followUnChange(j) {
 function likeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="dislikeButton(${k})" src="icon/hearts.png">`;
+
+    dislike(k);
 }
 
 
 function dislikeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="likeButton(${k})" src="icon/like.png">`;
+
+    like(k);
+}
+
+
+function like(k) {
+    let number = posts[k].likes;
+    document.getElementById(`likes(${k})`).innerHTML = `${number}`;
+}
+
+
+function dislike(k) {
+    let number = +posts[k].likes;
+    document.getElementById(`likes(${k})`).innerHTML = `${number+1}`;
 }
 
 
