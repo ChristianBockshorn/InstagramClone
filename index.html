@@ -13,48 +13,49 @@
 
 <body onload="render()">
     <section id="headerLeft">
-        <div class="headerLeft">
+        <div class="headerLeft hide-mobile-850">
 
-            <img src="img/instaclone-logo-dark.png">
+            <img src="img/instaclone-logo-dark.png" class="image_full">
+            <img src="icon/logo-mobile.png" class="image_mobile">
 
             <div class="headerNavLeft">
-                <nav>
+                <nav class="hide-mobileNav">
                     <a href="#"><img src="icon/home-page.png">
-                        <p>Startseite</p>
+                        <p class="hide-mobile">Startseite</p>
                     </a>
-                    <a href="#"><img src="icon/search.png">
-                        <p>Suche</p>
+                    <a href="#"><img src="icon/search.png" >
+                        <p class="hide-mobile">Suche</p>
                     </a>
                     <a href="#"><img src="icon/compass.png">
-                        <p>Entdecken</p>
+                        <p class="hide-mobile">Entdecken</p>
                     </a>
                     <a href="#"><img src="icon/instagram-reels.png">
-                        <p>Reels</p>
+                        <p class="hide-mobile">Reels</p>
                     </a>
                     <a href="#"><img src="icon/message.png">
-                        <p>Nachrichten</p>
+                        <p class="hide-mobile">Nachrichten</p>
                     </a>
                     <a href="#"><img src="icon/alarm.png">
-                        <p>Benachrichtigung</p>
+                        <p class="hide-mobile">Benachrichtigung</p>
                     </a>
                     <a href="#"><img src="icon/add-new.png">
-                        <p>Erstellen</p>
+                        <p class="hide-mobile">Erstellen</p>
                     </a>
 
                     <a href="#" class="iconContainerProfil"><img src="img/profile.jpeg">
-                        <p>Profil</p>
+                        <p class="hide-mobile">Profil</p>
                     </a>
                 </nav>
 
                 <div>
                     <a href="#"><img src="icon/more.png">
-                        <p>Mehr</p>
+                        <p class="hide-mobile">Mehr</p>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section id="main">
         <div class="main">
             <div class="mainLeft">
@@ -62,12 +63,12 @@
                 </div>
 
                 <div id="postContainer" class="postContainer">
-                    
+
                 </div>
             </div>
 
             <div class="mainRight">
-                <div class="profileContainer">
+                <div class="profileContainer hide-mobile-1140">
                     <div class="suggestionContainerNameLeft">
                         <a href="#"><img src="img/profile.jpeg"></a>
 
@@ -82,12 +83,12 @@
                     </div>
                 </div>
 
-                <div class="suggestionHeadline">
-                    <span >Vorschläge für dich</span>
+                <div class="suggestionHeadline hide-mobile-1140">
+                    <span>Vorschläge für dich</span>
                     <a href="#">Alle ansehen</a>
                 </div>
 
-                <div id="suggestionContainer" class="suggestionContainer">
+                <div id="suggestionContainer" class="suggestionContainer hide-mobile-1140">
                 </div>
 
                 <section id="footer" class="footer">
@@ -107,7 +108,7 @@
 
                     <div class="footerContainer">
                         Alle Bilder von <a href="https://pixabay.com/de/">www.pixabay.com</a>
-                    </div> 
+                    </div>
 
                     <div class="footerContainer">
                         © 2023 INSTACLONE FROM <br>CHRISTIAN BOCKSHORN
@@ -119,7 +120,32 @@
         </div>
     </section>
 
-    
+    <section class="footer-mobile footer-container-style">
+        <div class="footerContainer ">
+            <a href="#">Info</a> •
+            <a href="#">Hilfe</a> •
+            <a href="#">Presse</a> •
+            <a href="#">API</a> •
+            <a href="#">Jobs</a> •
+            <a href="#">Datenrichtlinie</a> •<br>
+            <a href="#">Nutzungsbedingungen und Impressum</a> •
+            <a href="#">NetzDG/UrhDaG/Ranking der Inhalte</a> •
+            <a href="#">Standorte</a> •
+            <a href="#">Sprache</a> •<br>
+            <a href="#">Meta Verified</a>
+        </div>
+
+        <div class="footerContainer ">
+            Alle Bilder von <a href="https://pixabay.com/de/">www.pixabay.com</a>
+        </div>
+
+        <div class="footerContainer ">
+            © 2023 INSTACLONE FROM <br>CHRISTIAN BOCKSHORN
+        </div>
+
+    </section>
+
+
 
 </body>
 
