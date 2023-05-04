@@ -1,7 +1,7 @@
 body {
     margin: 0;
     scroll-behavior: smooth;
-    background-color: rgb(249,249,249);
+    background-color: rgb(249, 249, 249);
 }
 
 .headerLeft {
@@ -245,7 +245,6 @@ body {
 }
 
 .articleCommentContainer {
-    margin-left: 10px;
     margin-right: 10px;
     padding-left: 20px;
     padding-top: 10px;
@@ -267,6 +266,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     margin-right: 30px;
+    cursor: pointer;
 
 }
 
