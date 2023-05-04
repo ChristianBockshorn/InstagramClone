@@ -1,6 +1,7 @@
 body {
     margin: 0;
     scroll-behavior: smooth;
+    background-color: rgb(249,249,249);
 }
 
 .headerLeft {
@@ -145,6 +146,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     width: 615px;
+    margin-bottom: 15px;
 }
 
 .article {
@@ -592,20 +594,28 @@ input::placeholder {
     }
 
     .footer-container-style {
-        height: 150px;
-        width: 330px;
+        height: 95px;
+        width: 630px;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
         border-radius: 10px;
         border: 1px solid rgb(213, 213, 213);
         padding: 5px;
-        margin-left: 24px;
+        margin-left: 19%;
         margin-top: 24px;
         justify-content: space-between;
         flex-direction: column;
         font-size: 14px;
 
+    }
+
+    .footerContainerMobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        color: grey;
     }
 
     .footer-container-style a {

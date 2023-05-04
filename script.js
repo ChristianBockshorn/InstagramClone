@@ -156,7 +156,12 @@ function genProfileContainer() {
     for (let j = 0; j < suggestionUser.length; j++) {
         const user = suggestionUser[j];
 
-        suggestion.innerHTML += `
+        suggestion.innerHTML += suggestionContainerHTML(user, j);
+    }
+}
+
+function suggestionContainerHTML(user, j) {
+    return `
         <div class="suggestionContainerUser (${j})">
             
             <div class="suggestionContainerNameLeft (${j})">
@@ -172,7 +177,6 @@ function genProfileContainer() {
             </div>
         </div>
         `;
-    }
 }
 
 
@@ -181,57 +185,58 @@ function genPost() {
     post.innerHTML = '';
     for (let k = 0; k < posts.length; k++) {
         const posting = posts[k];
-
-        post.innerHTML += `
-        <article class="article">
-            <div class="articleHeader">
-                <div class="articleHeaderLeft">
-                    <a href="#"><img src="${posting.authorImage}"></a>
-                    <a href="#"><p>${posting.author}</p></a>
-                </div>
-
-                <a href="#"><img class="icon-size articleIconLeftFilter" src="icon/more.png"></a>
-            </div>
-
-            <div class="articleImg">
-                <img src="${posting.image}">
-            </div>
-
-            <div class="articleIcon">
-                <div class="articleIconLeft">
-                    <a id="image(${k})"><img  onclick="likeButton(${k})" class="articleIconLeftFilter" src="icon/like.png"></a>
-                    <a href="#input${k}"><img class="articleIconLeftFilter" src="icon/comments-32.png"></a>
-                    <a href="#"><img class="articleIconLeftFilter" src="icon/sharethis-32.png"></a>
-                </div>
-                <div class="articleIconRight">
-                    <a href="#"><img class="articleIconLeftFilter" src="icon/book-16-32.png"></a>
-                </div>
-            </div>
-
-            <span class="articleLikeText">Gefällt <span id="likes(${k})">${posting.likes}</span> mal</span>
-
-            <div class="articlePostText">
-                <span class="articleLikeText">${posting.author}</span>
-                <span>${posting.description}</span>
-            </div>
-
-            <span class="articleCommentHeadline">Kommentare</span>
-
-            <div id="articleCommentContainer${k}" class="articleCommentContainer">
-                
-            </div>
-
-            <div class="articleInput">
-                <input name="alert" required id="input${k}" type="text" placeholder="Kommentieren..."></input>
-                <button onclick="addPost(${k})" class="articlePostButton">Posten</button> 
-            </div>
-        </article>
-        
-        `;
-
+        post.innerHTML += generateArticleHTML(posting, k);
     }
 }
 
+
+function generateArticleHTML(posting, k) {
+    return `
+    <article class="article">
+        <div class="articleHeader">
+            <div class="articleHeaderLeft">
+                <a href="#"><img src="${posting.authorImage}"></a>
+                <a href="#"><p>${posting.author}</p></a>
+            </div>
+
+            <a href="#"><img class="icon-size articleIconLeftFilter" src="icon/more.png"></a>
+        </div>
+
+        <div class="articleImg">
+            <img src="${posting.image}">
+        </div>
+
+        <div class="articleIcon">
+            <div class="articleIconLeft">
+                <a id="image(${k})"><img  onclick="likeButton(${k})" class="articleIconLeftFilter" src="icon/like.png"></a>
+                <a href="#input${k}"><img class="articleIconLeftFilter" src="icon/comments-32.png"></a>
+                <a href="#"><img class="articleIconLeftFilter" src="icon/sharethis-32.png"></a>
+            </div>
+            <div class="articleIconRight">
+                <a href="#"><img class="articleIconLeftFilter" src="icon/book-16-32.png"></a>
+            </div>
+        </div>
+
+        <span class="articleLikeText">Gefällt <span id="likes(${k})">${posting.likes}</span> mal</span>
+
+        <div class="articlePostText">
+            <span class="articleLikeText">${posting.author}</span>
+            <span>${posting.description}</span>
+        </div>
+
+        <span class="articleCommentHeadline">Kommentare</span>
+
+        <div id="articleCommentContainer${k}" class="articleCommentContainer">
+            
+        </div>
+
+        <div class="articleInput">
+            <input name="alert" required id="input${k}" type="text" placeholder="Kommentieren..."></input>
+            <button onclick="addPost(${k})" class="articlePostButton">Posten</button> 
+        </div>
+    </article>
+    `;
+}
 
 function comment() {
     for (let i = 0; i < posts.length; i++) {
@@ -309,7 +314,7 @@ function like(k) {
 
 function dislike(k) {
     let number = +posts[k].likes;
-    document.getElementById(`likes(${k})`).innerHTML = `${number+1}`;
+    document.getElementById(`likes(${k})`).innerHTML = `${number + 1}`;
 }
 
 
