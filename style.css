@@ -577,9 +577,6 @@ input::placeholder {
 }
 
 
-
-
-
 @media (max-width:1345px) and (min-width: 0px) {
     .footer {
         display: none;
@@ -627,8 +624,6 @@ input::placeholder {
     .headerLeft {
         width: 150px;
     }
-
-
 }
 
 @media (max-width:975px) {
