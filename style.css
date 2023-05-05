@@ -595,15 +595,14 @@ input::placeholder {
 
     .footer-container-style {
         height: 95px;
-        width: 630px;
+        width: 625px;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
         border-radius: 10px;
         border: 1px solid rgb(213, 213, 213);
         padding: 5px;
-        margin-left: 19%;
-        margin-top: 24px;
+        margin-left: 10px;
         justify-content: space-between;
         flex-direction: column;
         font-size: 14px;
@@ -667,5 +666,28 @@ input::placeholder {
 @media (max-width:850px) {
     .hide-mobile-850 {
         display: none;
+    }
+}
+
+@media (max-width:700px)  {
+    .postContainer{
+        width: 90%;
+        height: auto;
+        
+    }
+
+    .articleImg img{
+        width: 95%;
+        height: auto;
+    }
+
+    .storyContainer{
+        width: 90%;
+        height: auto;
+    }
+
+    .footer-container-style {
+        width: 95%;
+        
     }
 }

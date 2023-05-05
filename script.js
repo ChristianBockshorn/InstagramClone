@@ -15,7 +15,6 @@ function render() {
     genProfileContainer();
     genPost();
     comment();
-
 }
 
 
@@ -136,13 +135,6 @@ function addPost(k) {
         render();
     }
 }
-// Diese funktion funktioniert ebenfalls, bloß ohne die Meldung sobald das Feld leer gepostet wird
-// function addPost(k) {
-//     let input = document.getElementById(`input${k}`);
-//     posts[k]['comments'].push(input.value);
-//     render();
-
-// }
 
 
 function follow(j) {
@@ -185,10 +177,3 @@ function dislike(k) {
     let number = +posts[k].likes;
     document.getElementById(`likes(${k})`).innerHTML = `${number + 1}`;
 }
-
-
-
-
-
-
-
