@@ -374,8 +374,6 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
-
 }
 
 .suggestionContainerNameLeft {
@@ -385,14 +383,12 @@ input::placeholder {
 
 .suggestionContainerNameRight {
     display: flex;
-
 }
 
 .suggestionContainer img {
     border-radius: 100%;
     height: 38px;
     width: 38px;
-
 }
 
 .suggestionContainerName {
@@ -403,7 +399,6 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .suggestionContainerUser a {
@@ -432,7 +427,6 @@ input::placeholder {
 .footer a {
     text-decoration: none;
     color: grey;
-
 }
 
 .footer a:hover {
@@ -452,7 +446,6 @@ input::placeholder {
 }
 
 
-
 @media (max-width: 1630px) {
 
     .headerLeft {
@@ -467,7 +460,6 @@ input::placeholder {
     .headerNavLeft img {
         width: 24px;
         height: 24px;
-
     }
 }
 
@@ -678,7 +670,8 @@ input::placeholder {
     }
 
     .footer-container-style {
-        width: 95%;
+        width: 91.5%;
+        height: 105px;
         
     }
 }
