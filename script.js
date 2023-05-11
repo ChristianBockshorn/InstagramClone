@@ -85,10 +85,10 @@ function generateArticleHTML(posting, k) {
             </div>
         </div>
 
-        <span class="articleLikeText">Gefällt <span id="likes(${k})">${posting.likes}</span> mal</span>
+        <div class="articleLikeText">Gefällt <span id="likes(${k})">${posting.likes}</span> mal</div>
 
         <div class="articlePostText">
-            <span class="articleLikeText">${posting.author}</span>
+            <span class="articleDescription">${posting.author}</span>
             <span>${posting.description}</span>
         </div>
 
