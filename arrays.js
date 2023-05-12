@@ -5,6 +5,7 @@ let posts = [
         'image': 'img/nature.jpg',
         'description': 'Sonnenuntergang am Strand, Leo Carrillo State Beach',
         'likes': '58',
+        'isLike': false,
         'comments': [],
     },
 
@@ -127,3 +128,5 @@ let suggestionUser = [
 
     },
 ];
+
+load();

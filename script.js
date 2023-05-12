@@ -1,3 +1,5 @@
+load();
+
 function render() {
     let content = document.getElementById('user');
     content.innerHTML = '';
@@ -41,7 +43,7 @@ function suggestionContainerHTML(user, j) {
             </div>
 
             <div class="suggestionContainerNameRight">
-                <span class="profileContainerNameRight" id="follow(${j})"><a onclick="followUnChange(${j})" href="#">Folgen</a></span>
+                <span class="profileContainerNameRight" id="follow(${j})"><a onclick="toggleFollow(${j})" href="#">Folgen</a></span>
             </div>
         </div>
         `;
@@ -132,30 +134,48 @@ function addPost(k) {
         alert('Comment must be filled out');
     } else {
         posts[k]['comments'].push(input.value);
+        save();
         render();
+    }
+
+}
+
+
+function toggleFollow(j) {
+    const followEl = document.getElementById(`follow(${j})`);
+    if (followEl.innerHTML.includes('Angefragt')) {
+        followEl.innerHTML = `<a onclick="toggleFollow(${j})">Folgen</a>`;
+    } else {
+        followEl.innerHTML = `<a onclick="toggleFollowUnChange(${j})">Angefragt</a>`;
     }
 }
 
-
-function follow(j) {
-    document.getElementById(`follow(${j})`).innerHTML = `
-    <a onclick="followUnChange(${j})">Folgen</a>
-    `;
+function toggleFollowUnChange(j) {
+    const followEl = document.getElementById(`follow(${j})`);
+    followEl.innerHTML = `<a onclick="toggleFollow(${j})">Folgen</a>`;
 }
 
 
-function followUnChange(j) {
-    document.getElementById(`follow(${j})`).innerHTML = `
-    <a onclick="follow(${j})">Angefragt</a>
-    `;
-}
+
+// function follow(j) {
+//     document.getElementById(`follow(${j})`).innerHTML = `
+//     <a onclick="followUnChange(${j})">Folgen</a>
+//     `;
+// }
+
+
+// function followUnChange(j) {
+//     document.getElementById(`follow(${j})`).innerHTML = `
+//     <a onclick="follow(${j})">Angefragt</a>
+//     `;
+// }
 
 
 function likeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="dislikeButton(${k})" src="icon/hearts.png">`;
 
-    dislike(k);
+    toggleLike(k);
 }
 
 
@@ -163,17 +183,53 @@ function dislikeButton(k) {
     document.getElementById(`image(${k})`).innerHTML = `
     <img onclick ="likeButton(${k})" src="icon/like.png">`;
 
-    like(k);
+    toggleLike(k);
 }
 
 
-function like(k) {
+function toggleLike(k) {
     let number = posts[k].likes;
-    document.getElementById(`likes(${k})`).innerHTML = `${number}`;
+    let likeContainer = document.getElementById(`likes(${k})`);
+
+
+    if (posts[k].isLike) {
+        posts[k].isLike = false;
+        number--;
+        likeContainer.innerHTML = number + 1;
+
+    } else {
+        posts[k].isLike = true;
+        number++;
+        likeContainer.innerHTML = number;
+
+    }
+}
+
+// toggleLike(k, `${number}`);
+// toggleLike(k, `${number + 1}`);
+
+
+// function like(k) {
+//     let number = posts[k].likes;
+//     document.getElementById(`likes(${k})`).innerHTML = `${number}`;
+// }
+
+
+// function dislike(k) {
+//     let number = +posts[k].likes;
+//     document.getElementById(`likes(${k})`).innerHTML = `${number + 1}`;
+// }
+
+function save() {
+    let postsAsText = JSON.stringify(posts); 
+    localStorage.setItem('posts', postsAsText); 
 }
 
 
-function dislike(k) {
-    let number = +posts[k].likes;
-    document.getElementById(`likes(${k})`).innerHTML = `${number + 1}`;
+function load() {
+    let postsAsText = localStorage.getItem('posts');
+
+    if (postsAsText) { 
+        posts = JSON.parse(postsAsText);
+    }
 }
